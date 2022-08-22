@@ -55,6 +55,13 @@ const createRoom = (room) => {
     .catch((err) => console.log("error:" + err));
 };
 
+app.use((req, res, next) => { // Handle error CORS policy
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Method', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
+
 app.get("/video-call/:id", async function (req, res) {
   const roomId = req.params.id;
 

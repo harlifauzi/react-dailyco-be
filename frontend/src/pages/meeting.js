@@ -5,10 +5,10 @@ export default function Video({ match }) {
   const id = match.params.id;
 
   useEffect(() => {
-    const domain = "https://michaelkitas.daily.co/";
+    const domain = "https://harleykwen.daily.co/";
 
     axios
-      .get(`/video-call/${id}`)
+      .get(`https://react-dailyco-research.herokuapp.com/video-call/${id}`)
       .then((res) => {
         if (res.status === 200) {
           const script = document.createElement("script");
